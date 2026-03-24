@@ -1,0 +1,176 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+}
+
+/* NAVBAR */
+.navbar {
+    height: 60px;
+    background: #667eea;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.menu-btn {
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* LAYOUT */
+.layout {
+    display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 220px;
+    background: white;
+    min-height: calc(100vh - 60px);
+    padding: 20px;
+    border-right: 1px solid #eee;
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.sidebar a:hover {
+    background: #f1f1f1;
+}
+
+/* MAIN */
+.main {
+    flex: 1;
+    padding: 20px;
+}
+
+.heading {
+    margin-bottom: 20px;
+}
+
+/* CARDS */
+.cards {
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.card p {
+    margin: 0;
+    color: #777;
+    font-size: 14px;
+}
+
+.card h3 {
+    margin-top: 10px;
+    font-size: 24px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .sidebar {
+        position: fixed;
+        left: -220px;
+        top: 60px;
+        height: 100%;
+        transition: 0.3s;
+        z-index: 10;
+    }
+
+    .sidebar.show {
+        left: 0;
+    }
+
+    .cards {
+        flex-direction: column;
+    }
+}
+
+
+
+/* TABLE CONTAINER */
+.table {
+    margin-top: 20px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* ROW (GRID) */
+.row {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    /* balanced (title slightly wider) */
+    align-items: center;
+    padding: 14px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+/* HEADER */
+.header {
+    background: #f7f7f7;
+    font-weight: 600;
+}
+
+/* TEXT ALIGNMENT */
+.row span {
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Title slightly left (better UX) */
+.row span:first-child {
+    text-align: left;
+    font-weight: 500;
+}
+
+/* REMOVE LAST BORDER */
+.row:last-child {
+    border-bottom: none;
+}
+
+/* HOVER EFFECT */
+.row:not(.header):hover {
+    background: #f9f9f9;
+    transition: 0.2s;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        text-align: left;
+    }
+
+    .row span {
+        text-align: left;
+    }
+}

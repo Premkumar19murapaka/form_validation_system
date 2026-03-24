@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="../styles/auth.css">
+</head>
+
+<body>
+
+    <div class="auth-container">
+
+        <div class="auth-card">
+            <h2>Welcome Back</h2>
+            <p class="subtitle">Login to continue</p>
+
+            <input id="email" placeholder="Email">
+            <p class="error" id="emailError"></p>
+            <input id="password" type="password" placeholder="Password">
+            <p class="error" id="passwordError"></p>
+
+            <p id="error"></p>
+
+            <button onclick="login()">Login</button>
+
+            <p class="switch">
+                Don’t have an account?
+                <a href="register.html">Register</a>
+            </p>
+        </div>
+
+    </div>
+
+    <script src="../scripts/data.js"></script>
+    <script src="../scripts/login.js"></script>
+
+</body>
+
+</html>

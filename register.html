@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="../styles/auth.css">
+</head>
+
+<body>
+
+    <div class="auth-container">
+        <div class="auth-card">
+
+            <h2>Create Account</h2>
+            <p class="subtitle">Start your journey</p>
+
+            <input id="firstName" placeholder="First Name">
+            <p class="error" id="firstNameError"></p>
+
+            <input id="lastName" placeholder="Last Name">
+            <p class="error" id="lastNameError"></p>
+
+            <input id="email" placeholder="Email">
+            <p class="error" id="emailError"></p>
+
+            <input id="password" type="password" placeholder="Password">
+            <p class="error" id="passwordError"></p>
+
+            <input id="confirm" type="password" placeholder="Confirm Password">
+            <p class="error" id="confirmError"></p>
+
+            <button onclick="signup()">Register</button>
+
+            <p class="switch">
+                Already have an account?
+                <a href="login.html">Login</a>
+            </p>
+
+        </div>
+    </div>
+
+    <script src="../scripts/data.js"></script>
+    <script src="../scripts/register.js"></script>
+
+</body>
+
+</html>

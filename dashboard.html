@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../styles/dashboard.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="menu-btn" onclick="toggleSidebar()">☰</div>
+        <div class="title">Dashboard</div>
+    </div>
+
+    <div class="layout">
+
+        <!-- SIDEBAR -->
+        <div class="sidebar" id="sidebar">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="users.html">Users</a>
+        </div>
+
+        <!-- MAIN -->
+        <div class="main">
+            <div>
+                <h2 class="heading">Overview</h2>
+
+                <div class="cards">
+                    <div class="card">
+                        <p>Total Users</p>
+                        <h3 id="users"></h3>
+                    </div>
+
+                    <div class="card">
+                        <p>Active Users</p>
+                        <h3 id="active"></h3>
+                    </div>
+
+                    <div class="card">
+                        <p>Pending Requests</p>
+                        <h3 id="pending"></h3>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 5px">
+                <h2 class="heading">Top Articles</h2>
+
+                <div class="table">
+
+                    <div class="row header">
+                        <span>Title</span>
+                        <span>Views</span>
+                        <span>Comments</span>
+                    </div>
+
+                    <div id="articlesList"></div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+    <script src="../scripts/data.js"></script>
+    <script src="../scripts/dashboard.js"></script>
+
+</body>
+
+</html>

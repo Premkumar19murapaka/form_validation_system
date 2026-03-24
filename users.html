@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Users</title>
+    <link rel="stylesheet" href="../styles/users.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="title">Users</div>
+    </div>
+
+    <div class="layout">
+
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="users.html">Users</a>
+        </div>
+
+        <!-- MAIN -->
+        <div class="main">
+
+            <h2 class="heading">User Management</h2>
+
+            <!-- CONTROLS -->
+            <div class="controls">
+                <input id="search" placeholder="Search by name" oninput="render()">
+
+                <select id="role" onchange="render()">
+                    <option value="">All Roles</option>
+                    <option>Admin</option>
+                    <option>User</option>
+                </select>
+            </div>
+
+            <!-- LIST -->
+            <div id="list" class="list"></div>
+
+        </div>
+
+    </div>
+
+    <script src="../scripts/data.js"></script>
+    <script src="../scripts/users.js"></script>
+
+</body>
+
+</html>
