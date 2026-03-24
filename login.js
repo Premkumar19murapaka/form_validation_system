@@ -10,8 +10,9 @@ function login() {
         return;
     }
 
-    usersInfo = localStorage.getItem('usersInfo');
-    usersInfo = JSON.parse(usersInfo);
+    let usersInfo = localStorage.getItem('usersInfo');
+    usersInfo = usersInfo ? JSON.parse(usersInfo) : [];  // ✅ FIX
+
     let user = usersInfo.find(u => u.email === email && u.pass === pass);
 
     if (!user) {
