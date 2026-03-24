@@ -1,34 +1,39 @@
 function render() {
+    let users = JSON.parse(localStorage.getItem("usersInfo")) || [];
+
     let search = document.getElementById("search").value.toLowerCase();
     let role = document.getElementById("role").value;
+
     let list = document.getElementById("list");
 
-    let filtered = users.filter(u => {
-        return (
-            u.name.toLowerCase().includes(search) &&
-            (role === "" || u.role === role)
-        );
+    let filtered = users.filter(user => {
+        let fullName = (user.firstName + " " + user.lastName).toLowerCase();
+
+        let matchName = fullName.includes(search);
+        let matchRole = role === "" || user.role === role;
+
+        return matchName && matchRole;
     });
 
-    list.innerHTML = "";
-
     if (filtered.length === 0) {
-        list.innerHTML = "<p>No results found</p>";
+        list.innerHTML = "<p>No users found</p>";
         return;
     }
 
-    filtered.forEach(u => {
-        let div = document.createElement("div");
-        div.className = "item";
+    let html = "";
 
-        div.innerHTML = `
-      <span>${u.name}</span>
-      <span class="role">${u.role}</span>
-    `;
-
-        list.appendChild(div);
+    filtered.forEach(user => {
+        html += `
+            <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
+                <h4>${user.firstName} ${user.lastName}</h4>
+                <p>Email: ${user.email}</p>
+                <p>Role: ${user.role || "User"}</p>
+            </div>
+        `;
     });
+
+    list.innerHTML = html;
 }
 
-// initial render
-render();
+// Load users on page load
+window.onload = render;
