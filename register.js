@@ -74,6 +74,5 @@ function signup() {
 
     alert("Account created successfully");
 
-   
-    window.location.assign("index.html");
+   window.location.href = "./index.html";
 }
