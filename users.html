@@ -1,52 +1,47 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Users</title>
-    <link rel="stylesheet" href="../styles/users.css">
+    <link rel="stylesheet" href="users.css">
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
-    <div class="navbar">
-        <div class="title">Users</div>
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="title">Users</div>
+</div>
+
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="users.html">Users</a>
     </div>
 
-    <div class="layout">
+    <!-- MAIN -->
+    <div class="main">
 
-        <!-- SIDEBAR -->
-        <div class="sidebar">
-            <a href="dashboard.html">Dashboard</a>
-            <a href="users.html">Users</a>
-        </div>
+        <h2>User Management</h2>
 
-        <!-- MAIN -->
-        <div class="main">
+        <!-- CONTROLS -->
+        <input id="search" placeholder="Search by name" oninput="render()">
 
-            <h2 class="heading">User Management</h2>
+        <select id="role" onchange="render()">
+            <option value="">All Roles</option>
+            <option value="Admin">Admin</option>
+            <option value="User">User</option>
+        </select>
 
-            <!-- CONTROLS -->
-            <div class="controls">
-                <input id="search" placeholder="Search by name" oninput="render()">
-
-                <select id="role" onchange="render()">
-                    <option value="">All Roles</option>
-                    <option>Admin</option>
-                    <option>User</option>
-                </select>
-            </div>
-
-            <!-- LIST -->
-            <div id="list" class="list"></div>
-
-        </div>
+        <!-- LIST -->
+        <div id="list"></div>
 
     </div>
 
-    <script src="../scripts/data.js"></script>
-    <script src="../scripts/users.js"></script>
+</div>
+
+<script src="users.js"></script>
 
 </body>
-
 </html>
