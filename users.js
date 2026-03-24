@@ -1,3 +1,5 @@
+window.onload = render;
+
 function render() {
     let users = JSON.parse(localStorage.getItem("usersInfo")) || [];
 
@@ -7,9 +9,9 @@ function render() {
     let list = document.getElementById("list");
 
     let filtered = users.filter(user => {
-        let fullName = (user.firstName + " " + user.lastName).toLowerCase();
+        let name = (user.firstName + " " + user.lastName).toLowerCase();
 
-        let matchName = fullName.includes(search);
+        let matchName = name.includes(search);
         let matchRole = role === "" || user.role === role;
 
         return matchName && matchRole;
@@ -24,16 +26,13 @@ function render() {
 
     filtered.forEach(user => {
         html += `
-            <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
-                <h4>${user.firstName} ${user.lastName}</h4>
-                <p>Email: ${user.email}</p>
-                <p>Role: ${user.role || "User"}</p>
+            <div style="padding:10px; border:1px solid #ccc; margin:10px 0;">
+                <b>${user.firstName} ${user.lastName}</b><br>
+                ${user.email}<br>
+                Role: ${user.role || "User"}
             </div>
         `;
     });
 
     list.innerHTML = html;
 }
-
-// Load users on page load
-window.onload = render;
