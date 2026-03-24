@@ -5,14 +5,12 @@ function signup() {
     let pass = document.getElementById("password").value;
     let confirm = document.getElementById("confirm").value;
 
-    // error elements
     let firstNameError = document.getElementById("firstNameError");
     let lastNameError = document.getElementById("lastNameError");
     let emailError = document.getElementById("emailError");
     let passwordError = document.getElementById("passwordError");
     let confirmError = document.getElementById("confirmError");
 
-    // reset errors
     firstNameError.innerText = "";
     lastNameError.innerText = "";
     emailError.innerText = "";
@@ -57,16 +55,25 @@ function signup() {
 
     if (!isValid) return;
 
-    usersInfo = localStorage.getItem('usersInfo') ?? '[]';
-    usersInfo = JSON.parse(usersInfo);
+    let usersInfo = JSON.parse(localStorage.getItem('usersInfo') || '[]');
+
+    let exists = usersInfo.find(u => u.email === email);
+    if (exists) {
+        emailError.innerText = "Email already registered";
+        return;
+    }
+
     usersInfo.push({
         firstName,
         lastName,
         email,
         pass
     });
+
     localStorage.setItem('usersInfo', JSON.stringify(usersInfo));
 
     alert("Account created successfully");
-    window.location.assign("login.html");
+
+   
+    window.location.assign("index.html");
 }
